@@ -3,7 +3,8 @@ from boto3.dynamodb.conditions import Key  # import Boto3 conditions
 
 def lambda_handler(event, context):
     # Entrada (json)
-    tenant_id = event['tenant_id']
+    body = event['body']
+    tenant_id = body['tenant_id']
     # Proceso
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('t_alumnos')

@@ -2,8 +2,9 @@ import boto3
 
 def lambda_handler(event, context):
     # Entrada (json)
-    tenant_id = event['tenant_id']
-    alumno_id = event['alumno_id']
+    body = event['body']
+    tenant_id = body['tenant_id']
+    alumno_id = body['alumno_id']
     # Proceso
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('t_alumnos')
